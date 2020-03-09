@@ -25,3 +25,12 @@ Exercise 2.6 (Mysterious Spikes): The results shown in Figure 2.3 should be quit
 
 Optimistic initial values encourage exploration at early time steps by artificially inflating the estimated rewards of all bandits.  If, by chance, the truly higher reward bandits are selected during early time exploration, then the resulting sequence of plays will be exceptionally good.  On the other hand, if, by chance, the algorithm selects those bandits with rewards most artificially inflated by the optimistic initialization, then the resulting sequence of plays will be exceptionally bad.  These dynamics could lead to the observed spikes at early time steps.
 
+Exercise 2.7 (Unbiased Constant-Step-Size Trick): In most of this chapter we have used sample averages to estimate action values because sample averages do not produce the initial bias that constant step sizes do (see the analysis leading to (2.6)). However, sample averages are not a completely satisfactory solution because they may perform poorly on nonstationary problems. Is it possible to avoid the bias of constant step sizes while retaining their advantages on nonstationary problems? One way is to use a step size of
+
+![$\beta = \alpha / \bar{o}_n$](https://render.githubusercontent.com/render/math?math=%24%5Cbeta%20%3D%20%5Calpha%20%2F%20%5Cbar%7Bo%7D_n%24),
+
+to process the ![$n$](https://render.githubusercontent.com/render/math?math=%24n%24)th reward for a particular action, where ![$\alpha > 0$](https://render.githubusercontent.com/render/math?math=%24%5Calpha%20%3E%200%24) is a conventional constant step size, and ![$\bar{o}_n$](https://render.githubusercontent.com/render/math?math=%24%5Cbar%7Bo%7D_n%24) is a trace of one that starts at 0:
+
+![$\bar{o}_{n} = \bar{o}_{n-1} + \alpha(1 - \bar{o}_{n-1})$](https://render.githubusercontent.com/render/math?math=%24%5Cbar%7Bo%7D_%7Bn%7D%20%3D%20%5Cbar%7Bo%7D_%7Bn-1%7D%20%2B%20%5Calpha(1%20-%20%5Cbar%7Bo%7D_%7Bn-1%7D)%24), for ![$n \geq 0$](https://render.githubusercontent.com/render/math?math=%24n%20%5Cgeq%200%24), with ![$\bar{o}_0 = 0$](https://render.githubusercontent.com/render/math?math=%24%5Cbar%7Bo%7D_0%20%3D%200%24).
+
+Carry out an analysis like that in (2.6) to show that ![$Q_n$](https://render.githubusercontent.com/render/math?math=%24Q_n%24) is an exponential recency-weighted average ![$without$](https://render.githubusercontent.com/render/math?math=%24without%24) ![$initial$](https://render.githubusercontent.com/render/math?math=%24initial%24) ![$bias$](https://render.githubusercontent.com/render/math?math=%24bias%24).
