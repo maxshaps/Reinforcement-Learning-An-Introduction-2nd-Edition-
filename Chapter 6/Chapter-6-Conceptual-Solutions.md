@@ -21,3 +21,12 @@ Exercise 6.4: The specific results shown in the right graph of the random walk e
 significantly better than shown? Why or why not?
 
 For any fixed policy and a constant step-size parameter ![$\alpha$](https://render.githubusercontent.com/render/math?math=%24%5Calpha%24), TD(0) is only guaranteed to converge to the true value function values if ![$\alpha$](https://render.githubusercontent.com/render/math?math=%24%5Calpha%24) is sufficiently small.  I would guess that for very large ![$\alpha$](https://render.githubusercontent.com/render/math?math=%24%5Calpha%24) values, TD(0) may have convergence issues and thus underperform constant-![$\alpha$](https://render.githubusercontent.com/render/math?math=%24%5Calpha%24) MC.
+
+Exercise 6.11: Why is Q-learning considered an *off-policy* control method?
+
+Q-learning is off-policy because it performs Q-value updates using the Q-value of the next state ![$s\!'$](https://render.githubusercontent.com/render/math?math=%24s%5C!'%24) and the greedy next action ![$a\!'$](https://render.githubusercontent.com/render/math?math=%24a%5C!'%24). In other words, Q-learning estimates the return for state-action pairs assuming that the behavior policy is greedy, even though the behavior policy may not necessarily be greedy (e.g., the behavior policy may be ![$\varepsilon$](https://render.githubusercontent.com/render/math?math=%24%5Cvarepsilon%24)-greedy to promote exploration instead of being purely exploitative).
+
+
+Exercise 6.12: Suppose action selection is greedy. Is Q-learning then exactly the same algorithm as Sarsa? Will they make exactly the same action selections and weight updates?
+
+If action selection is greedy, then Q-learning and Sarsa are equivalent.
